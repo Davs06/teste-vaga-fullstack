@@ -10,8 +10,11 @@ function readCSV(callback) {
 
     fs.createReadStream('data.csv')
     .pipe(csv())
-    .on('data', (data) => { results.push(data) })
-    .on('end', () => { callback(results) })
+    .on('data', (data) =>  results.push(data) )
+    .on('end', () => { 
+       // console.log(results);
+        callback(results) 
+    })
     .on('error', (error) => console.error('Error reading CSV file:', error))
 }
 
